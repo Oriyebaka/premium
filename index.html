@@ -359,47 +359,43 @@
         });
         
      
-    const countdownDuration = 60 * 60 * 1000; // 1 hour in milliseconds
+   const countdownDuration = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+  const countdownKey = 'countdownEndTime';
 
-    function initializeCountdown() {
-        let endTime = localStorage.getItem('countdownEndTime');
+  // Get or set countdown end time
+  let endTime = localStorage.getItem(countdownKey);
+  if (!endTime) {
+    endTime = new Date().getTime() + countdownDuration;
+    localStorage.setItem(countdownKey, endTime);
+  } else {
+    endTime = parseInt(endTime, 10);
+  }
 
-        // If no end time in storage, set it to now + 1 hour
-        if (!endTime) {
-            endTime = new Date().getTime() + countdownDuration;
-            localStorage.setItem('countdownEndTime', endTime);
-        } else {
-            endTime = parseInt(endTime);
-        }
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const timeLeft = endTime - now;
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = endTime - now;
-
-            if (distance <= 0) {
-                document.getElementById('days').innerText = '00';
-                document.getElementById('hours').innerText = '00';
-                document.getElementById('minutes').innerText = '00';
-                document.getElementById('seconds').innerText = '00';
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = String(days).padStart(2, '0');
-            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
-        }
-
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+    if (timeLeft <= 0) {
+      document.getElementById("days").textContent = "00";
+      document.getElementById("hours").textContent = "00";
+      document.getElementById("minutes").textContent = "00";
+      document.getElementById("seconds").textContent = "00";
+      return;
     }
 
-    window.onload = initializeCountdown;
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days.toString().padStart(2, '0');
+    document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+  }
+
+  updateCountdown(); // Initial call
+  setInterval(updateCountdown, 1000); // Update every second
 </script>
 
     </script>

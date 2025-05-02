@@ -358,36 +358,50 @@
             });
         });
         
-        // Countdown Timer
-        const countdownDate = new Date();
-        countdownDate.setDate(countdownDate.getDate() + 30); // Set to 30 days from now
-        
+     
+    const countdownDuration = 60 * 60 * 1000; // 1 hour in milliseconds
+
+    function initializeCountdown() {
+        let endTime = localStorage.getItem('countdownEndTime');
+
+        // If no end time in storage, set it to now + 1 hour
+        if (!endTime) {
+            endTime = new Date().getTime() + countdownDuration;
+            localStorage.setItem('countdownEndTime', endTime);
+        } else {
+            endTime = parseInt(endTime);
+        }
+
         function updateCountdown() {
             const now = new Date().getTime();
-            const distance = countdownDate - now;
-            
-            // Time calculations
+            const distance = endTime - now;
+
+            if (distance <= 0) {
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+                return;
+            }
+
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            // Display the result
-            document.getElementById("days").textContent = days.toString().padStart(2, '0');
-            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
-            
-            // If the countdown is finished, display a message
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "WEBSITE LAUNCHING SOON!";
-            }
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
         }
-        
-        // Update the countdown every 1 second
+
         updateCountdown();
-        const x = setInterval(updateCountdown, 1000);
+        setInterval(updateCountdown, 1000);
+    }
+
+    window.onload = initializeCountdown;
+</script>
+
     </script>
 </body>
 </html>

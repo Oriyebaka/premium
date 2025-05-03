@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form - Premium Preversity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        'primary-light': '#2563eb',
+                        secondary: '#4f46e5',
+                        accent: '#f59e0b',
+                        'accent-dark': '#d97706',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="fixed-header">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-2">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center">
+                    <img src="/images/logo.png" alt="Premium Preversity Logo" class="h-14 mr-2 site-logo">
+                    <span class="text-xl font-bold text-primary font-montserrat site-name">Premium Preversity</span>
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <div id="mobile-menu-button" class="md:hidden text-gray-500 focus:outline-none hamburger z-50">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-800 hover:text-primary font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-gray-800 hover:text-primary font-medium">About Us</a>
+                    <div class="dropdown relative group">
+                        <a href="programs.html" class="nav-link text-gray-800 hover:text-primary font-medium flex items-center">
+                            Programs <i class="fas fa-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 z-10 hidden group-hover:block">
+                            <a href="ijmb.html" class="block px-4 py-3 text-gray-800 hover:bg-primary hover:text-white transition-colors duration-200">IJMB Program</a>
+                            <a href="jupeb.html" class="block px-4 py-3 text-gray-800 hover:bg-primary hover:text-white transition-colors duration-200">JUPEB Program</a>
+                        </div>
+                    </div>
+                    <a href="admission.html" class="nav-link text-gray-800 hover:text-primary font-medium">Admission</a>
+                    <a href="contact.html" class="nav-link text-gray-800 hover:text-primary font-medium">Contact</a>
+                </nav>
+                
+                <!-- Apply Button -->
+                <a href="apply.html" class="hidden md:block bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition duration-300">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden fixed top-0 left-0 w-full h-auto max-h-screen bg-white z-40 pt-20 pb-6 px-4 overflow-y-auto">
+            <nav class="flex flex-col space-y-0">
+                <a href="index.html" class="text-gray-800 hover:text-primary font-medium py-3 border-b border-gray-100">Home</a>
+                <a href="about.html" class="text-gray-800 hover:text-primary font-medium py-3 border-b border-gray-100">About Us</a>
+                
+                <!-- Programs dropdown for mobile -->
+                <div class="border-b border-gray-100">
+                    <button id="mobile-programs-button" class="w-full text-left text-gray-800 font-medium py-3 flex justify-between items-center">
+                        Programs
+                        <i id="mobile-programs-icon" class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-programs-menu" class="hidden pl-4 pb-3">
+                        <a href="ijmb.html" class="block py-2 text-gray-800 hover:text-primary">IJMB Program</a>
+                        <a href="jupeb.html" class="block py-2 text-gray-800 hover:text-primary">JUPEB Program</a>
+                    </div>
+                </div>
+                
+                <a href="admission.html" class="text-gray-800 hover:text-primary font-medium py-3 border-b border-gray-100">Admission</a>
+                <a href="contact.html" class="text-gray-800 hover:text-primary font-medium py-3 border-b border-gray-100">Contact</a>
+                <a href="apply.html" class="bg-primary hover:bg-secondary text-white font-bold py-3 px-4 rounded text-center transition duration-300 mt-4">
+                    Apply Now
+                </a>
+            </nav>
+            
+            <!-- Close button -->
+            <button id="mobile-menu-close" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-banner relative" style="background-image: url('images/students-banner.jpeg');">
+        <div class="overlay bg-gradient-overlay"></div>
+        <div class="container mx-auto px-4 relative z-10 flex flex-col justify-center items-center h-full py-20">
+            <h1 class="text-4xl md:text-6xl font-bold text-white text-center mb-4 slide-in-bottom font-montserrat">Registration Form</h1>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white py-3 shadow-sm">
+        <div class="container mx-auto px-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="index.php" class="text-gray-700 hover:text-primary transition duration-300">
+                            <i class="fas fa-home mr-2"></i> Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <span class="text-gray-500 mx-2">/</span>
+                            <a href="apply.php" class="text-gray-700 hover:text-primary transition duration-300">Apply</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <span class="text-gray-500 mx-2">/</span>
+                            <span class="text-gray-500">Registration Form</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Registration Form -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto">
+                <!-- Verification Code Input -->
+                <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Enter Your Verification Code</h3>
+                    <p class="text-gray-600 mb-4">Please enter the verification code you received after your payment was confirmed. This code will be submitted with your application.</p>
+                    
+                    <div>
+                        <label for="verification_code" class="block text-gray-700 font-medium mb-2">Verification Code</label>
+                        <input type="text" id="verification_code" name="verification_code" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" placeholder="e.g. PV-2023-45678">
+                    </div>
+                </div>
+                
+                <!-- Form Container -->
+                <div id="form-container" class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                    <!-- Form Tabs -->
+                    <div class="mb-8 border-b border-gray-200">
+                        <div class="flex flex-wrap -mb-px">
+                            <button class="inline-block p-4 border-b-2 border-primary text-primary font-medium" id="tab-personal">
+                                <i class="fas fa-user mr-2"></i> Personal Details
+                            </button>
+                            <button class="inline-block p-4 border-b-2 border-transparent hover:text-primary hover:border-primary font-medium text-gray-500" id="tab-education">
+                                <i class="fas fa-graduation-cap mr-2"></i> Educational Details
+                            </button>
+                            <button class="inline-block p-4 border-b-2 border-transparent hover:text-primary hover:border-primary font-medium text-gray-500" id="tab-program">
+                                <i class="fas fa-book mr-2"></i> Program Details
+                            </button>
+                            <button class="inline-block p-4 border-b-2 border-transparent hover:text-primary hover:border-primary font-medium text-gray-500" id="tab-attestation">
+                                <i class="fas fa-check-circle mr-2"></i> Attestation
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Progress Bar -->
+                    <div class="w-full bg-gray-200 rounded-full h-2.5 mb-8">
+                        <div class="bg-primary h-2.5 rounded-full" id="progress-bar" style="width: 25%"></div>
+                    </div>
+                    
+                    <form action="process-registration.php" method="post" id="registration-form">
+                        <!-- Hidden field to store verification code -->
+                        <input type="hidden" name="verification_code" id="hidden_verification_code">
+                        
+                        <!-- Personal Details Form -->
+                        <div id="form-personal" class="form-section">
+                            <h3 class="text-xl font-bold text-gray-800 mb-6 bg-gray-100 p-3 rounded">Personal Details</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                                <div class="md:col-span-2">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">First Name</label>
+                                            <input type="text" name="first_name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                        </div>
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">Middle Name</label>
+                                            <input type="text" name="middle_name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                        </div>
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">Last Name</label>
+                                            <input type="text" name="last_name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                        </div>
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">Gender</label>
+                                            <select name="gender" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                                <option value="">Select Gender</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">Date of Birth</label>
+                                            <input type="date" name="dob" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                        </div>
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">Phone No 1</label>
+                                            <input type="tel" name="phone1" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                        </div>
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">Phone No 2</label>
+                                            <input type="tel" name="phone2" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <label class="block text-gray-700 font-medium mb-2">Residential Address</label>
+                                            <input type="text" name="address" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                        </div>
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">State</label>
+                                            <input type="text" name="state" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                        </div>
+                                        <div>
+                                            <label class="block text-gray-700 font-medium mb-2">Country</label>
+                                            <input type="text" name="country" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Passport Photograph</label>
+                                    <div class="border-2 border-dashed border-gray-300 rounded-md p-4 text-center h-48 flex flex-col items-center justify-center">
+                                        <i class="fas fa-camera text-gray-400 text-3xl mb-2"></i>
+                                        <p class="text-gray-500 mb-2">Affix Passport Photograph</p>
+                                        <input type="file" name="passport_photo" id="passport_photo" class="hidden">
+                                        <button type="button" onclick="document.getElementById('passport_photo').click()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm py-1 px-3 rounded">
+                                            Upload Photo
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h3 class="text-xl font-bold text-gray-800 mb-6 bg-gray-100 p-3 rounded mt-8">Parent/Guardian Details</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                    <input type="text" name="guardian_name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Phone No (Home)</label>
+                                    <input type="tel" name="guardian_phone_home" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Residential Address</label>
+                                    <input type="text" name="guardian_address" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Phone No (Office)</label>
+                                    <input type="tel" name="guardian_phone_office" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label class="block text-gray-700 font-medium mb-2">Office Address</label>
+                                    <input type="text" name="guardian_office_address" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-end mt-6">
+                                <button type="button" class="bg-primary hover:bg-primary-light text-white font-bold py-2 px-6 rounded-md transition duration-300" id="next-to-education">
+                                    Next <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Educational Details Form -->
+                        <div id="form-education" class="form-section hidden">
+                            <h3 class="text-xl font-bold text-gray-800 mb-6 bg-gray-100 p-3 rounded">Educational Details</h3>
+                            
+                            <div class="mb-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-2">Secondary School Name</label>
+                                        <input type="text" name="school_name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-2">Graduate Year</label>
+                                        <input type="text" name="graduate_year" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                                    <h4 class="font-bold text-gray-700 mb-4">(WAEC/NECO/NABTEB) - First Sitting</h4>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="grid grid-cols-3 gap-3">
+                                            <div class="col-span-2">
+                                                <label class="block text-gray-700 text-sm mb-1">Enter Subject</label>
+                                                <input type="text" name="subject1" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                            <div>
+                                                <label class="block text-gray-700 text-sm mb-1">Grade</label>
+                                                <input type="text" name="grade1" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-3 gap-3">
+                                            <div class="col-span-2">
+                                                <label class="block text-gray-700 text-sm mb-1">Enter Subject</label>
+                                                <input type="text" name="subject2" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                            <div>
+                                                <label class="block text-gray-700 text-sm mb-1">Grade</label>
+                                                <input type="text" name="grade2" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-3 gap-3">
+                                            <div class="col-span-2">
+                                                <label class="block text-gray-700 text-sm mb-1">Enter Subject</label>
+                                                <input type="text" name="subject3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                            <div>
+                                                <label class="block text-gray-700 text-sm mb-1">Grade</label>
+                                                <input type="text" name="grade3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-3 gap-3">
+                                            <div class="col-span-2">
+                                                <label class="block text-gray-700 text-sm mb-1">Enter Subject</label>
+                                                <input type="text" name="subject4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                            <div>
+                                                <label class="block text-gray-700 text-sm mb-1">Grade</label>
+                                                <input type="text" name="grade4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-3 gap-3">
+                                            <div class="col-span-2">
+                                                <label class="block text-gray-700 text-sm mb-1">Enter Subject</label>
+                                                <input type="text" name="subject5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                            <div>
+                                                <label class="block text-gray-700 text-sm mb-1">Grade</label>
+                                                <input type="text" name="grade5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <h4 class="font-bold text-gray-700 mb-4">(WAEC/NECO/NABTEB) - Second Sitting</h4>
+                                    
+                                    <div class="space-y-3">
+                                        <div class="grid grid-cols-3 gap-3">
+                                            <div class="col-span-2">
+                                                <label class="block text-gray-700 text-sm mb-1">Enter Subject</label>
+                                                <input type="text" name="subject6" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                            <div>
+                                                <label class="block text-gray-700 text-sm mb-1">Grade</label>
+                                                <input type="text" name="grade6" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-3 gap-3">
+                                            <div class="col-span-2">
+                                                <label class="block text-gray-700 text-sm mb-1">Enter Subject</label>
+                                                <input type="text" name="subject7" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                            <div>
+                                                <label class="block text-gray-700 text-sm mb-1">Grade</label>
+                                                <input type="text" name="grade7" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-3 gap-3">
+                                            <div class="col-span-2">
+                                                <label class="block text-gray-700 text-sm mb-1">Enter Subject</label>
+                                                <input type="text" name="subject8" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                            <div>
+                                                <label class="block text-gray-700 text-sm mb-1">Grade</label>
+                                                <input type="text" name="grade8" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between mt-6">
+                                <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-md transition duration-300" id="back-to-personal">
+                                    <i class="fas fa-arrow-left mr-2"></i> Back
+                                </button>
+                                <button type="button" class="bg-primary hover:bg-primary-light text-white font-bold py-2 px-6 rounded-md transition duration-300" id="next-to-program">
+                                    Next <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Program Details Form -->
+                        <div id="form-program" class="form-section hidden">
+                            <h3 class="text-xl font-bold text-gray-800 mb-6 bg-gray-100 p-3 rounded">Program Details</h3>
+                            
+                            <div class="mb-6">
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">A'Level Subject Combination</label>
+                                    <textarea name="subject_combination" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" rows="3"></textarea>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-2">First Choice University</label>
+                                        <input type="text" name="first_choice_uni" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-medium mb-2">Second Choice University</label>
+                                        <input type="text" name="second_choice_uni" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">When Will You Resume For Lectures?</label>
+                                    <input type="text" name="resume_date" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Program Type</label>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="flex items-center">
+                                            <input type="radio" id="ijmb" name="program_type" value="ijmb" class="h-4 w-4 text-primary focus:ring-primary">
+                                            <label for="ijmb" class="ml-2 text-gray-700">IJMB Program</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input type="radio" id="jupeb" name="program_type" value="jupeb" class="h-4 w-4 text-primary focus:ring-primary">
+                                            <label for="jupeb" class="ml-2 text-gray-700">JUPEB Program</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between mt-6">
+                                <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-md transition duration-300" id="back-to-education">
+                                    <i class="fas fa-arrow-left mr-2"></i>
+                                </button>
+                                <button type="button" class="bg-primary hover:bg-primary-light text-white font-bold py-2 px-6 rounded-md transition duration-300" id="next-to-attestation">
+                                    Next <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Attestation Form -->
+                        <div id="form-attestation" class="form-section hidden">
+                            <h3 class="text-xl font-bold text-gray-800 mb-6 bg-gray-100 p-3 rounded">Attestation</h3>
+                            
+                            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-6">
+                                <h4 class="font-bold text-gray-800 mb-4">Please read and agree to the following terms:</h4>
+                                
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="attestation1" name="attestation1" class="mt-1 h-4 w-4 text-primary focus:ring-primary">
+                                        <label for="attestation1" class="ml-2 text-gray-700">
+                                            I agree that if caught in any form of misconduct and misbehaviour, I should be penalized.
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="attestation2" name="attestation2" class="mt-1 h-4 w-4 text-primary focus:ring-primary">
+                                        <label for="attestation2" class="ml-2 text-gray-700">
+                                            I agree that fees are non-refundable.
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="attestation3" name="attestation3" class="mt-1 h-4 w-4 text-primary focus:ring-primary">
+                                        <label for="attestation3" class="ml-2 text-gray-700">
+                                            All fees must be paid before the final exam, failure to do so all fees paid should be considered mill.
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="attestation4" name="attestation4" class="mt-1 h-4 w-4 text-primary focus:ring-primary">
+                                        <label for="attestation4" class="ml-2 text-gray-700">
+                                            If caught in any form of vandalization of the school's property I should be held responsible for replacement.
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="attestation5" name="attestation5" class="mt-1 h-4 w-4 text-primary focus:ring-primary">
+                                        <label for="attestation5" class="ml-2 text-gray-700">
+                                            I must be modest in my appearance.
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <input type="checkbox" id="attestation6" name="attestation6" class="mt-1 h-4 w-4 text-primary focus:ring-primary">
+                                        <label for="attestation6" class="ml-2 text-gray-700">
+                                            I must be punctual and regular in my classes, failure to should attract penalty.
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6">
+                                    <div class="flex items-center">
+                                        <input type="checkbox" id="agree" name="agree" class="h-4 w-4 text-primary focus:ring-primary">
+                                        <label for="agree" class="ml-2 text-gray-700 font-medium">I agree that these information about me are accurate</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-red-50 p-4 rounded-lg border border-red-200 mb-6">
+                                <h4 class="font-bold text-gray-800 flex items-center mb-2">
+                                    <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                                    Anti-Duplication Warning
+                                </h4>
+                                <p class="text-gray-700 text-sm">
+                                    Do not share your verification code. Each code is tied to a unique payment and can be voided if misused. Premium Preversity reserves the right to cancel any application found to be duplicated or shared.
+                                </p>
+                            </div>
+                            
+                            <div class="flex justify-between mt-6">
+                                <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-md transition duration-300" id="back-to-program">
+                                    <i class="fas fa-arrow-left mr-2"></i>
+                                </button>
+                                <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-md transition duration-300">
+                                    <i class="fas fa-paper-plane mr-2"></i> Submit Application
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner (hidden by default) -->
+<div id="loading-spinner" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-5 rounded-lg shadow-lg flex flex-col items-center">
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary mb-3"></div>
+        <p class="text-gray-700 font-medium">Submitting your application...</p>
+        <p class="text-gray-500 text-sm mt-2">Please do not close this page.</p>
+    </div>
+</div>
+        
+    </section>
+ <!-- Footer -->
+ <footer class="bg-gray-900 text-white pt-16 pb-6">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8">
+            <!-- About -->
+            <div class="slide-in-left">
+                <div class="flex items-center mb-4">
+                    <img src="images/logo.png" alt="Premium Preversity Logo" class="h-12 mr-3">
+                    <h3 class="text-xl font-bold">Premium Preversity</h3>
+                </div>
+                <p class="text-gray-400 mb-4">
+                    Providing quality pre-university education through our JUPEB and IJMB programs to help students achieve their academic goals and secure admission into 200 level in Nigerian universities.
+                </p>
+                <div class="flex space-x-4">
+                    <!-- Social media handles commented out as requested -->
+                    <!--
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover:scale-110 transform">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover:scale-110 transform">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover:scale-110 transform">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover:scale-110 transform">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    -->
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="slide-in-left" style="animation-delay: 0.2s;">
+                <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Home</a></li>
+                    <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> About Us</a></li>
+                    <li><a href="programs.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Programs</a></li>
+                    <li><a href="admission.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Admission</a></li>
+                    <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <!-- Programs -->
+            <div class="slide-in-left" style="animation-delay: 0.4s;">
+                <h3 class="text-xl font-bold mb-4">Our Programs</h3>
+                <ul class="space-y-2">
+                    <li><a href="ijmb.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> IJMB Program</a></li>
+                    <li><a href="jupeb.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> JUPEB Program</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact -->
+            <div class="slide-in-left" style="animation-delay: 0.6s;">
+                <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                <ul class="space-y-3 text-gray-400">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-light"></i>
+                        <span>14 Railway Close, D-Line, Behind NITEL, Port Harcourt</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-phone-alt mr-3 text-primary-light"></i>
+                        <span>+234 706 786 6444</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope mr-3 text-primary-light"></i>
+                        <span>premiumpreversity25@gmail.com</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-clock mr-3 text-primary-light"></i>
+                        <span>Mon-Fri: 8:00 AM - 4:00 PM</span>
+                    </li>
+                </ul>
+                <div class="mt-4">
+                    <h4 class="font-semibold mb-2">Subscribe to our Newsletter</h4>
+                    <form action="#" method="POST" class="flex">
+                        <input type="email" placeholder="Your Email" class="px-4 py-2 w-full rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button type="submit" class="bg-primary hover:bg-primary-light px-4 py-2 rounded-r-md transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-12 pt-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">&copy; 2025 Premium Preversity. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="js/script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileProgramsButton = document.getElementById('mobile-programs-button');
+        const mobileProgramsMenu = document.getElementById('mobile-programs-menu');
+        const mobileProgramsIcon = document.getElementById('mobile-programs-icon');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.classList.toggle('open');
+                document.body.classList.toggle('menu-open');
+            });
+        }
+        
+        if (mobileMenuClose && mobileMenu && mobileMenuButton) {
+            mobileMenuClose.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.classList.remove('open');
+                document.body.classList.remove('menu-open');
+            });
+        }
+        
+        // Mobile programs dropdown
+        if (mobileProgramsButton && mobileProgramsMenu) {
+            mobileProgramsButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                mobileProgramsMenu.classList.toggle('hidden');
+                if (mobileProgramsIcon) {
+                    mobileProgramsIcon.classList.toggle('rotate-180');
+                }
+            });
+        }
+        
+        // Close mobile menu on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768 && mobileMenu && mobileMenuButton) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.classList.remove('open');
+                document.body.classList.remove('menu-open');
+            }
+        });
+        
+        // Simple animation observer
+        const animateElements = document.querySelectorAll('.aos-animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // FAQ accordion
+        const faqButtons = document.querySelectorAll('.faq-button');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                content.classList.toggle('hidden');
+                const icon = button.querySelector('i');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+    });
+</script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab navigation
+            const tabs = {
+                'tab-personal': 'form-personal',
+                'tab-education': 'form-education',
+                'tab-program': 'form-program',
+                'tab-attestation': 'form-attestation'
+            };
+            
+            const progressValues = {
+                'form-personal': 25,
+                'form-education': 50,
+                'form-program': 75,
+                'form-attestation': 100
+            };
+            
+            // Function to show a specific tab
+            function showTab(tabId) {
+                // Hide all form sections
+                document.querySelectorAll('.form-section').forEach(section => {
+                    section.classList.add('hidden');
+                });
+                
+                // Show the selected form section
+                document.getElementById(tabs[tabId]).classList.remove('hidden');
+                
+                // Update progress bar
+                const progressBar = document.getElementById('progress-bar');
+                progressBar.style.width = progressValues[tabs[tabId]] + '%';
+                
+                // Update tab styling
+                document.querySelectorAll('[id^="tab-"]').forEach(tab => {
+                    tab.classList.remove('border-primary', 'text-primary');
+                    tab.classList.add('border-transparent', 'text-gray-500');
+                });
+                
+                document.getElementById(tabId).classList.add('border-primary', 'text-primary');
+                document.getElementById(tabId).classList.remove('border-transparent', 'text-gray-500');
+    
+                // Scroll to the top of the form container
+                document.getElementById('form-container').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            
+            // Add click event listeners to tabs
+            Object.keys(tabs).forEach(tabId => {
+                document.getElementById(tabId).addEventListener('click', () => {
+                    showTab(tabId);
+                });
+            });
+            
+            // Next and Back button navigation
+            document.getElementById('next-to-education').addEventListener('click', () => {
+                showTab('tab-education');
+            });
+            
+            document.getElementById('back-to-personal').addEventListener('click', () => {
+                showTab('tab-personal');
+            });
+            
+            document.getElementById('next-to-program').addEventListener('click', () => {
+                showTab('tab-program');
+            });
+            
+            document.getElementById('back-to-education').addEventListener('click', () => {
+                showTab('tab-education');
+            });
+            
+            document.getElementById('next-to-attestation').addEventListener('click', () => {
+                showTab('tab-attestation');
+            });
+            
+            document.getElementById('back-to-program').addEventListener('click', () => {
+                showTab('tab-program');
+            });
+            
+            // Copy verification code to hidden field before form submission
+            document.getElementById('registration-form').addEventListener('submit', function(e) {
+                const verificationCode = document.getElementById('verification_code').value;
+                document.getElementById('hidden_verification_code').value = verificationCode;
+            });
+        });
+    </script>
+    <script src="form-to-sheets.js"></script>
+</body>
+</html>

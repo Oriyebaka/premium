@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply - Premium Preversity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        'primary-light': '#2563eb',
+                        secondary: '#4f46e5',
+                        accent: '#f59e0b',
+                        'accent-dark': '#d97706',
+                    },
+                    fontSize: {
+                        'xs': '0.75rem',
+                        'sm': '0.875rem',
+                        'base': '0.95rem',
+                        'lg': '1.125rem',
+                        'xl': '1.25rem',
+                        '2xl': '1.5rem',
+                        '3xl': '1.875rem',
+                        '4xl': '2.25rem',
+                        '5xl': '3rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-sans text-base">
+    <!-- Header -->
+     <header class="fixed-header">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-2">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center">
+                    <img src="/images/logo.png" alt="Premium Preversity Logo" class="h-14 mr-2 site-logo">
+                    <span class="text-xl font-bold text-primary font-montserrat site-name">Premium Preversity</span>
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <div id="mobile-menu-button" class="md:hidden text-gray-500 focus:outline-none hamburger z-50">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-800 hover:text-primary font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-gray-800 hover:text-primary font-medium">About Us</a>
+                    <div class="dropdown relative group">
+                        <a href="programs.html" class="nav-link text-gray-800 hover:text-primary font-medium flex items-center">
+                            Programs <i class="fas fa-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 z-10 hidden group-hover:block">
+                            <a href="ijmb.html" class="block px-4 py-3 text-gray-800 hover:bg-primary hover:text-white transition-colors duration-200">IJMB Program</a>
+                            <a href="jupeb.html" class="block px-4 py-3 text-gray-800 hover:bg-primary hover:text-white transition-colors duration-200">JUPEB Program</a>
+                        </div>
+                    </div>
+                    <a href="admission.html" class="nav-link text-gray-800 hover:text-primary font-medium">Admission</a>
+                    <a href="contact.html" class="nav-link text-gray-800 hover:text-primary font-medium">Contact</a>
+                </nav>
+                
+                <!-- Apply Button -->
+                <a href="apply.html" class="hidden md:block bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition duration-300">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden fixed top-0 left-0 w-full h-auto max-h-screen bg-white z-40 pt-20 pb-6 px-4 overflow-y-auto">
+            <nav class="flex flex-col space-y-0">
+                <a href="index.html" class="text-gray-800 hover:text-primary font-medium py-3 border-b border-gray-100">Home</a>
+                <a href="about.html" class="text-gray-800 hover:text-primary font-medium py-3 border-b border-gray-100">About Us</a>
+                
+                <!-- Programs dropdown for mobile -->
+                <div class="border-b border-gray-100">
+                    <button id="mobile-programs-button" class="w-full text-left text-gray-800 font-medium py-3 flex justify-between items-center">
+                        Programs
+                        <i id="mobile-programs-icon" class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-programs-menu" class="hidden pl-4 pb-3">
+                        <a href="ijmb.html" class="block py-2 text-gray-800 hover:text-primary">IJMB Program</a>
+                        <a href="jupeb.html" class="block py-2 text-gray-800 hover:text-primary">JUPEB Program</a>
+                    </div>
+                </div>
+                
+                <a href="admission.html" class="text-gray-800 hover:text-primary font-medium py-3 border-b border-gray-100">Admission</a>
+                <a href="contact.html" class="text-gray-800 hover:text-primary font-medium py-3 border-b border-gray-100">Contact</a>
+                <a href="apply.html" class="bg-primary hover:bg-secondary text-white font-bold py-3 px-4 rounded text-center transition duration-300 mt-4">
+                    Apply Now
+                </a>
+            </nav>
+            
+            <!-- Close button -->
+            <button id="mobile-menu-close" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-banner relative" style="background-image: url('images/students-banner.jpeg');">
+        <div class="overlay bg-gradient-overlay"></div>
+        <div class="container mx-auto px-4 relative z-10 flex flex-col justify-center items-center h-full py-20">
+            <h1 class="text-4xl md:text-6xl font-bold text-white text-center mb-4 slide-in-bottom font-montserrat">Apply Now</h1>
+        </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="bg-gray-100 py-3">
+        <div class="container mx-auto px-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3 text-sm">
+                    <li class="inline-flex items-center">
+                        <a href="index.html" class="text-gray-700 hover:text-primary transition duration-300">
+                            <i class="fas fa-home mr-2"></i> Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <span class="text-gray-500 mx-2">/</span>
+                            <span class="text-gray-500">Apply</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Application Process Steps -->
+    <section class="py-10 md:py-12 bg-white bg-dots-light">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Application Process</h2>
+                    <p class="text-gray-600 text-sm md:text-base">Follow these simple steps to complete your application to Premium Preversity</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+                    <!-- Step 1 -->
+                    <div class="bg-gray-50 rounded-lg p-5 shadow-md relative border-t-4 border-primary">
+                        <div class="absolute -top-5 -left-5 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg shadow-md">1</div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 mt-2">Make Payment</h3>
+                        <p class="text-gray-600 text-sm mb-2">Make a bank transfer for the application fee to our account.</p>
+                        <p class="text-gray-600 text-sm">After payment, send proof to our WhatsApp or email.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="bg-gray-50 rounded-lg p-5 shadow-md relative border-t-4 border-primary">
+                        <div class="absolute -top-5 -left-5 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg shadow-md">2</div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 mt-2">Verification</h3>
+                        <p class="text-gray-600 text-sm mb-2">Our team will verify your payment.</p>
+                        <p class="text-gray-600 text-sm">You'll receive a unique verification code for the registration form.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="bg-gray-50 rounded-lg p-5 shadow-md relative border-t-4 border-primary">
+                        <div class="absolute -top-5 -left-5 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg shadow-md">3</div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 mt-2">Complete Registration</h3>
+                        <p class="text-gray-600 text-sm mb-2">Access the registration form with your verification code.</p>
+                        <p class="text-gray-600 text-sm">Submit the form to complete your application.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Instructions -->
+    <section class="py-10 md:py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <div class="bg-primary p-5 text-white">
+                        <h2 class="text-xl font-bold">Payment Instructions</h2>
+                        <p class="mt-2 text-sm">Please follow these instructions carefully to complete your application payment</p>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold text-gray-800 mb-4">Bank Transfer Details</h3>
+                            
+                            <div class="bg-gray-50 p-5 rounded-lg border border-gray-200 mb-5">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-gray-500 text-xs">Bank Name</p>
+                                        <p class="font-semibold text-gray-800 text-sm">First Bank of Nigeria</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs">Account Number</p>
+                                        <p class="font-semibold text-gray-800 text-sm">3142567890</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs">Account Name</p>
+                                        <p class="font-semibold text-gray-800 text-sm">Premium Preversity</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-xs">Amount</p>
+                                        <p class="font-semibold text-gray-800 text-sm">₦20,000</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-yellow-50 p-5 rounded-lg border border-yellow-200">
+                                <h4 class="font-bold text-gray-800 flex items-center mb-3 text-sm">
+                                    <i class="fas fa-exclamation-circle text-yellow-500 mr-2"></i>
+                                    Important Instructions
+                                </h4>
+                                <ol class="list-decimal pl-5 space-y-2 text-gray-700 text-sm">
+                                    <li>Make the payment using the bank details provided above.</li>
+                                    <li>Take a screenshot or photo of your payment receipt/confirmation.</li>
+                                    <li>Send the payment proof along with your full name to:
+                                        <div class="mt-2 space-y-2">
+                                            <a href="https://wa.link/d9a3rs" target="_blank" class="flex items-center text-green-600 hover:text-green-700 text-sm">
+                                                <i class="fab fa-whatsapp text-lg mr-2"></i>
+                                                WhatsApp: wa.link/d9a3rs
+                                            </a>
+                                            <a href="mailto:premiumpreversity25@gmail.com" class="flex items-center text-blue-600 hover:text-blue-700 text-sm">
+                                                <i class="fas fa-envelope text-base mr-2"></i>
+                                                Email: premiumpreversity25@gmail.com
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>Once your payment is verified, you will receive a unique verification code to access the registration form.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-5 rounded-lg border border-blue-200">
+                            <h4 class="font-bold text-gray-800 flex items-center mb-3 text-sm">
+                                <i class="fas fa-info-circle text-blue-500 mr-2"></i>
+                                What Happens Next?
+                            </h4>
+                            <p class="text-gray-700 mb-3 text-sm">
+                                After we verify your payment (usually within 24-48 hours), you'll receive a unique verification code.
+                            </p>
+                            <p class="text-gray-700 text-sm">
+                                You'll need this code to complete your application on our registration form.
+                            </p>
+                            
+                            <div class="mt-5 text-center">
+                                <a href="registration-form.html" class="inline-flex items-center justify-center px-5 py-2.5 bg-primary hover:bg-primary-light text-white font-medium text-sm rounded-md transition-all duration-200 shadow-sm">
+                                    Proceed to Registration Form <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+     <footer class="bg-gray-900 text-white pt-16 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div class="slide-in-left">
+                    <div class="flex items-center mb-4">
+                        <img src="images/logo.png" alt="Premium Preversity Logo" class="h-12 mr-3">
+                        <h3 class="text-xl font-bold">Premium Preversity</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Providing quality pre-university education through our JUPEB and IJMB programs to help students achieve their academic goals and secure admission into 200 level in Nigerian universities.
+                    </p>
+                    <div class="flex space-x-4">
+                        <!-- Social media handles commented out as requested -->
+                        <!--
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover:scale-110 transform">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover:scale-110 transform">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover:scale-110 transform">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover:scale-110 transform">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        -->
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="slide-in-left" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> About Us</a></li>
+                        <li><a href="programs.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Programs</a></li>
+                        <li><a href="admission.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Admission</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Programs -->
+                <div class="slide-in-left" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-bold mb-4">Our Programs</h3>
+                    <ul class="space-y-2">
+                        <li><a href="ijmb.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> IJMB Program</a></li>
+                        <li><a href="jupeb.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> JUPEB Program</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div class="slide-in-left" style="animation-delay: 0.6s;">
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-light"></i>
+                            <span>14 Railway Close, D-Line, Behind NITEL, Port Harcourt</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-primary-light"></i>
+                            <span>+234 706 786 6444</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary-light"></i>
+                            <span>premiumpreversity25@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-primary-light"></i>
+                            <span>Mon-Fri: 8:00 AM - 4:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4">
+                        <h4 class="font-semibold mb-2">Subscribe to our Newsletter</h4>
+                        <form action="#" method="POST" class="flex">
+                            <input type="email" placeholder="Your Email" class="px-4 py-2 w-full rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            <button type="submit" class="bg-primary hover:bg-primary-light px-4 py-2 rounded-r-md transition duration-300">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400">&copy; 2025 Premium Preversity. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileProgramsButton = document.getElementById('mobile-programs-button');
+            const mobileProgramsMenu = document.getElementById('mobile-programs-menu');
+            const mobileProgramsIcon = document.getElementById('mobile-programs-icon');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenuButton.classList.toggle('open');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+            
+            if (mobileMenuClose && mobileMenu && mobileMenuButton) {
+                mobileMenuClose.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.classList.remove('open');
+                    document.body.classList.remove('menu-open');
+                });
+            }
+            
+            // Mobile programs dropdown
+            if (mobileProgramsButton && mobileProgramsMenu) {
+                mobileProgramsButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    mobileProgramsMenu.classList.toggle('hidden');
+                    if (mobileProgramsIcon) {
+                        mobileProgramsIcon.classList.toggle('rotate-180');
+                    }
+                });
+            }
+            
+            // Close mobile menu on window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768 && mobileMenu && mobileMenuButton) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.classList.remove('open');
+                    document.body.classList.remove('menu-open');
+                }
+            });
+            
+            // Simple animation observer
+            const animateElements = document.querySelectorAll('.aos-animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // FAQ accordion
+            const faqButtons = document.querySelectorAll('.faq-button');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    content.classList.toggle('hidden');
+                    const icon = button.querySelector('i');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            });
+        });
+    </script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

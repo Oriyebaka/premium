@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUPEB Program - Premium Preversity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        'primary-light': '#2563eb',
+                        secondary: '#4f46e5',
+                        accent: '#f59e0b',
+                        'accent-dark': '#d97706',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="font-sans">
+    <!-- Header -->
+    <header class="fixed-header">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-2">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center">
+                    <img src="/images/logo.png" alt="Premium Preversity Logo" class="h-14 mr-2 site-logo">
+                    <span class="text-xl font-bold text-primary font-montserrat site-name">Premium Preversity</span>
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <div id="mobile-menu-button" class="md:hidden text-gray-500 focus:outline-none hamburger z-50">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link text-gray-800 hover:text-primary font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-gray-800 hover:text-primary font-medium">About Us</a>
+                    <div class="dropdown relative group">
+                        <a href="programs.html" class="nav-link text-gray-800 hover:text-primary font-medium flex items-center">
+                            Programs <i class="fas fa-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 z-10 hidden group-hover:block">
+                            <a href="ijmb.html" class="block px-4 py-3 text-gray-800 hover:bg-primary hover:text-white transition-colors duration-200">IJMB Program</a>
+                            <a href="jupeb.html" class="block px-4 py-3 text-gray-800 hover:bg-primary hover:text-white transition-colors duration-200">JUPEB Program</a>
+                        </div>
+                    </div>
+                    <a href="admission.html" class="nav-link text-gray-800 hover:text-primary font-medium">Admission</a>
+                    <a href="contact.html" class="nav-link text-gray-800 hover:text-primary font-medium">Contact</a>
+                </nav>
+                
+                <!-- Apply Button -->
+                <a href="apply.html" class="hidden md:block bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded transition duration-300">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden fixed top-0 left-0 w-full h-auto max-h-screen bg-white z-40 pt-20 pb-6 px-4 overflow-y-auto">
+            <nav class="flex flex-col space-y-0">
+                <a href="index.html" class="text-gray-800 hover:text-primary font-medium py-3 border-b border-gray-100">Home</a>
+                <a href="about.html" class="text-gray-800 hover:text-primary font-medium py-3 border-b border-gray-100">About Us</a>
+                
+                <!-- Programs dropdown for mobile -->
+                <div class="border-b border-gray-100">
+                    <button id="mobile-programs-button" class="w-full text-left text-gray-800 font-medium py-3 flex justify-between items-center">
+                        Programs
+                        <i id="mobile-programs-icon" class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-programs-menu" class="hidden pl-4 pb-3">
+                        <a href="ijmb.html" class="block py-2 text-gray-800 hover:text-primary">IJMB Program</a>
+                        <a href="jupeb.html" class="block py-2 text-gray-800 hover:text-primary">JUPEB Program</a>
+                    </div>
+                </div>
+                
+                <a href="admission.html" class="text-gray-800 hover:text-primary font-medium py-3 border-b border-gray-100">Admission</a>
+                <a href="contact.html" class="text-gray-800 hover:text-primary font-medium py-3 border-b border-gray-100">Contact</a>
+                <a href="apply.html" class="bg-primary hover:bg-secondary text-white font-bold py-3 px-4 rounded text-center transition duration-300 mt-4">
+                    Apply Now
+                </a>
+            </nav>
+            
+            <!-- Close button -->
+            <button id="mobile-menu-close" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-banner relative" style="background-image: url('images/students-banner.jpeg');">
+        <div class="overlay bg-gradient-overlay"></div>
+        <div class="container mx-auto px-4 relative z-10 flex flex-col justify-center items-center h-full py-20">
+            <h1 class="text-3xl md:text-6xl font-bold text-white text-center mb-4 slide-in-bottom font-montserrat">JUPEB Programme</h1>
+            <p class="text-xl text-white text-center max-w-2xl slide-in-bottom" style="animation-delay: 0.2s;">Our Programmes</p>
+        </div>
+    </section>
+
+    <!-- Background Elements -->
+    <div class="background-elements">
+        <div class="bg-dot dot-1"></div>
+        <div class="bg-dot dot-2"></div>
+        <div class="bg-dash dash-1"></div>
+        <div class="bg-dash dash-2"></div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="bg-gray-100 py-3">
+        <div class="container mx-auto px-4">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="index.html" class="text-gray-700 hover:text-primary transition duration-300">
+                            <i class="fas fa-home mr-2"></i> Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <span class="text-gray-500 mx-2">/</span>
+                            <a href="programs.html" class="text-gray-700 hover:text-primary transition duration-300">Programs</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <span class="text-gray-500 mx-2">/</span>
+                            <span class="text-gray-500">JUPEB Program</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Program Summary -->
+<section class="py-16 bg-white bg-dots-light">
+    <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="md:col-span-2">
+                    <div class="prose max-w-none text-gray-700 space-y-4">
+                        <p class="slide-in-left" style="animation-delay: 0.1s;">
+                            JUPEB stands for Joint Universities Preliminary Examinations Board. It is a national examination body approved by the Federal Government of Nigeria that conducts standardized examinations for candidates seeking admission into 200 level in Nigerian universities.
+                        </p>
+                        
+                        <p class="slide-in-left" style="animation-delay: 0.2s;">
+                            The JUPEB program is designed to prepare students for direct entry into 200 level in Nigerian universities and some international institutions. It is a one-year program that covers three subjects related to the student's desired course of study.
+                        </p>
+                        
+                        <h3 class="text-xl font-bold text-gray-800 mt-8 mb-4">Key points about the JUPEB program:</h3>
+                        
+                        <p class="slide-in-left" style="animation-delay: 0.3s;"><strong>Duration:</strong> The JUPEB program runs for one academic session (9-12 months), typically from September/October to June/July.</p>
+                        
+                        <p class="slide-in-left" style="animation-delay: 0.4s;"><strong>Curriculum:</strong> Students study three subjects related to their intended university course. The curriculum is comprehensive and designed to prepare students for university-level studies.</p>
+                        
+                        <p class="slide-in-left" style="animation-delay: 0.5s;"><strong>Recognition:</strong> JUPEB certificates are recognized by all Nigerian universities and some international institutions, making it a valuable qualification for higher education.</p>
+                        
+                        <p class="slide-in-left" style="animation-delay: 0.6s;"><strong>Admission Requirements:</strong> Candidates must have a minimum of five O'Level credits, including English Language and Mathematics, in not more than two sittings.</p>
+                        
+                        <p class="slide-in-left" style="animation-delay: 0.7s;"><strong>Examination:</strong> The final examination is conducted by the Joint Universities Preliminary Examinations Board, ensuring standardization and quality across all centers.</p>
+                        
+                        <p class="slide-in-left" style="animation-delay: 0.8s;">
+                            At Premium Preversity, we provide a conducive learning environment, experienced faculty, and comprehensive study materials to ensure our students excel in their JUPEB examinations and secure admission into their desired universities.
+                        </p>
+                        
+                        <p class="slide-in-left" style="animation-delay: 0.9s;">
+                            Our JUPEB program is designed to not only prepare students for their examinations but also to develop critical thinking, analytical skills, and a strong foundation for university studies.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- <div class="md:col-span-1">
+                    <div class="bg-accent text-white p-8 rounded-lg shadow-lg slide-in-right">
+                        <div class="flex justify-center mb-6">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-QssH3HBoUAjuwo624JPWE7rd8UdXql.png" alt="Campus Icon" class="w-24">
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">TAKE A CAMPUS TOUR</h3>
+                        <p class="text-center mb-8">
+                            Uncover the perfect blend of learning and serenity as you take a tour through our campus.
+                        </p>
+                        <div class="text-center">
+                            <a href="gallery.html" class="bg-white text-accent hover:bg-gray-100 font-bold py-3 px-6 rounded-lg inline-block transition duration-300">
+                                Start tour
+                            </a>
+                        </div>
+                    </div> -->
+                    
+                    <div class="mt-8 bg-gray-50 p-6 rounded-lg shadow-md slide-in-right" style="animation-delay: 0.2s;">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">How to apply</h3>
+                        <p class="text-gray-600 mb-4">
+                            Ready to embark on a transformative educational journey? Don't miss out! Apply now by clicking the button below and unlock the door to endless possibilities.
+                        </p>
+                        <a href="apply.html" class="bg-accent hover:bg-accent-dark text-white font-bold py-2 px-4 rounded inline-block transition duration-300">
+                            Apply online
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 bg-gray-50 p-6 rounded-lg shadow-md slide-in-right" style="animation-delay: 0.4s;">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Contact Us</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt text-accent mr-3"></i>
+                                <span>+234 706 786 6444"</span>
+                            </div>
+                            <div class="text-gray-500 text-sm">
+                                Monday to Friday 9:00am - 6:00pm
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Details -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">JUPEB Program Details</h2>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+                    <h3 class="text-2xl font-bold text-accent mb-4">Program Structure</h3>
+                    <p class="text-gray-700 mb-6">
+                        The JUPEB program at Premium Preversity is structured to provide comprehensive education in specific subject combinations relevant to students' desired university courses. The program runs for one academic session and includes regular assessments to track progress.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="aos-animate slide-up">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Academic Calendar</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-calendar-alt text-accent mt-1 mr-2"></i>
+                                    <div>
+                                        <span class="font-medium">First Semester:</span> September - December
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-calendar-alt text-accent mt-1 mr-2"></i>
+                                    <div>
+                                        <span class="font-medium">Second Semester:</span> January - April
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-calendar-alt text-accent mt-1 mr-2"></i>
+                                    <div>
+                                        <span class="font-medium">Revision Period:</span> May
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-calendar-alt text-accent mt-1 mr-2"></i>
+                                    <div>
+                                        <span class="font-medium">Final Examinations:</span> June
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="aos-animate slide-up">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Program Components</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <div>Intensive classroom lectures</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <div>Practical sessions for science subjects</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <div>Regular tests and assessments</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <div>Comprehensive study materials</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <div>University placement counseling</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+                    <h3 class="text-2xl font-bold text-accent mb-4">Subject Combinations</h3>
+                    <p class="text-gray-700 mb-6">
+                        JUPEB students take three subjects related to their intended university course. We offer various subject combinations for different disciplines:
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gray-50 p-6 rounded-lg aos-animate slide-right">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Science Combinations</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center">
+                                    <i class="fas fa-flask text-accent mr-2"></i>
+                                    <span>Physics, Chemistry, Mathematics</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-flask text-accent mr-2"></i>
+                                    <span>Physics, Chemistry, Biology</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg aos-animate slide-left">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Social Science Combinations</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center">
+                                    <i class="fas fa-chart-line text-accent mr-2"></i>
+                                    <span>Economics, Government, Geography</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-chart-line text-accent mr-2"></i>
+                                    <span>Economics, Geography, Mathematics</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-chart-line text-accent mr-2"></i>
+                                    <span>Economics, Government, Literature</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-chart-line text-accent mr-2"></i>
+                                    <span>Government, Literature, CRS/IRS</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg aos-animate slide-right">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Arts Combinations</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center">
+                                    <i class="fas fa-book text-accent mr-2"></i>
+                                    <span>Literature, CRS/IRS, History</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-book text-accent mr-2"></i>
+                                    <span>Literature, History, Government</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-book text-accent mr-2"></i>
+                                    <span>Literature, French, CRS/IRS</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-book text-accent mr-2"></i>
+                                    <span>History, CRS/IRS, Government</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg aos-animate slide-left">
+                            <h4 class="text-xl font-semibold text-gray-800 mb-3">Management Science Combinations</h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center">
+                                    <i class="fas fa-briefcase text-accent mr-2"></i>
+                                    <span>Accounting, Economics, Government</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-briefcase text-accent mr-2"></i>
+                                    <span>Accounting, Economics, Mathematics</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-briefcase text-accent mr-2"></i>
+                                    <span>Business Management, Economics, Government</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <i class="fas fa-briefcase text-accent mr-2"></i>
+                                    <span>Business Management, Accounting, Mathematics</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-accent mb-4">Admission Requirements</h3>
+                    <div class="mb-6">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Basic Requirements</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                            <li>Candidates must possess a minimum of 5 Credits in relevant SSCE subjects, including English Language and Mathematics, achieved in not more than 2 sittings.</li>
+                            <li>Applicants with pending results are also eligible to apply, on the condition that they can present the required O'level results before securing admission to the 200-level.</li>
+                            <li>Upon completion of the JUPEB programme, candidates should obtain the JAMB Direct Entry form to facilitate their admission into Premium Preversity or any other university of their preference.</li>
+                        </ol>
+                        
+                        <h4 class="text-xl font-semibold text-gray-800 mb-3">Application Process</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                            <li>Complete the online application form or obtain a physical form from our campus</li>
+                            <li>Pay the application fee</li>
+                            <li>Submit the completed application form along with required documents</li>
+                            <li>Attend an interview (if required)</li>
+                            <li>Receive admission notification</li>
+                            <li>Pay acceptance fee to secure your admission</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages of JUPEB -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Advantages of JUPEB</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md aos-animate slide-up">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-globe text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">International Recognition</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            JUPEB certificates are recognized not only by Nigerian universities but also by some international institutions, providing students with more options for higher education.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md aos-animate slide-up">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-graduation-cap text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Direct Entry</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            Successful JUPEB candidates can gain direct entry into 200 level in Nigerian universities, saving time and resources in their academic journey.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md aos-animate slide-up">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-book-open text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Comprehensive Curriculum</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            The JUPEB curriculum is designed to provide a strong foundation for university studies, covering essential concepts and skills needed for success in higher education.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md aos-animate slide-up">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Smaller Class Sizes</h3>
+                        </div>
+                        <p class="text-gray-700">
+                            JUPEB programs typically have smaller class sizes compared to traditional university settings, allowing for more personalized attention and better learning outcomes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">What Our JUPEB Students Say</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md aos-animate slide-up">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Adebayo Johnson</h4>
+                            <p class="text-sm text-gray-600">JUPEB Graduate, 2022</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "The JUPEB program at Premium Preversity was challenging but rewarding. The lecturers were knowledgeable and supportive, and the curriculum was comprehensive. I'm now studying Engineering at the University of Lagos."
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md aos-animate slide-up" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Chioma Okafor</h4>
+                            <p class="text-sm text-gray-600">JUPEB Graduate, 2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "I chose Premium Preversity for my JUPEB program because of their excellent reputation. The program exceeded my expectations, and I was able to secure admission into 200 level at Covenant University to study Medicine."
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md aos-animate slide-up" style="animation-delay: 0.4s;">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+                        <div>
+                            <h4 class="font-bold">Ibrahim Mohammed</h4>
+                            <p class="text-sm text-gray-600">JUPEB Graduate, 2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        "The JUPEB program at Premium Preversity provided me with a strong foundation for university studies. The small class sizes allowed for personalized attention, and the lecturers were always available to help. I'm now studying Economics at the University of Ibadan."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-accent text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Start Your Academic Journey?</h2>
+            <p class="max-w-2xl mx-auto mb-8">
+                Enroll in our JUPEB program today and take the first step towards your dream university.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="apply.html" class="bg-white hover:bg-gray-100 text-accent font-bold py-3 px-6 rounded-md transition duration-300">
+                    Apply Now
+                </a>
+                <a href="contact.html" class="bg-transparent hover:bg-yellow-600 border-2 border-white text-white font-bold py-3 px-6 rounded-md transition duration-300">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div class="slide-in-left">
+                    <div class="flex items-center mb-4">
+                        <img src="images/logo.png" alt="Premium Preversity Logo" class="h-12 mr-3">
+                        <h3 class="text-xl font-bold">Premium Preversity</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Providing quality pre-university education through our JUPEB and IJMB programs to help students achieve their academic goals and secure admission into 200 level in Nigerian universities.
+                    </p>
+                    <div class="flex space-x-4">
+                        <!-- Social media handles commented out as requested -->
+                        <!--
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover:scale-110 transform">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover:scale-110 transform">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover:scale-110 transform">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300 hover:scale-110 transform">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        -->
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="slide-in-left" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> About Us</a></li>
+                        <li><a href="programs.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Programs</a></li>
+                        <li><a href="admission.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Admission</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Programs -->
+                <div class="slide-in-left" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-bold mb-4">Our Programs</h3>
+                    <ul class="space-y-2">
+                        <li><a href="ijmb.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> IJMB Program</a></li>
+                        <li><a href="jupeb.html" class="text-gray-400 hover:text-white transition duration-300 flex items-center"><i class="fas fa-chevron-right mr-2 text-xs"></i> JUPEB Program</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div class="slide-in-left" style="animation-delay: 0.6s;">
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary-light"></i>
+                            <span>14 Railway Close, D-Line, Behind NITEL, Port Harcourt</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-primary-light"></i>
+                            <span>+234 706 786 6444</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary-light"></i>
+                            <span>premiumpreversity25@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-primary-light"></i>
+                            <span>Mon-Fri: 8:00 AM - 4:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4">
+                        <h4 class="font-semibold mb-2">Subscribe to our Newsletter</h4>
+                        <form action="#" method="POST" class="flex">
+                            <input type="email" placeholder="Your Email" class="px-4 py-2 w-full rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            <button type="submit" class="bg-primary hover:bg-primary-light px-4 py-2 rounded-r-md transition duration-300">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400">&copy; 2025 Premium Preversity. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileProgramsButton = document.getElementById('mobile-programs-button');
+            const mobileProgramsMenu = document.getElementById('mobile-programs-menu');
+            const mobileProgramsIcon = document.getElementById('mobile-programs-icon');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenuButton.classList.toggle('open');
+                    document.body.classList.toggle('menu-open');
+                });
+            }
+            
+            if (mobileMenuClose && mobileMenu && mobileMenuButton) {
+                mobileMenuClose.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.classList.remove('open');
+                    document.body.classList.remove('menu-open');
+                });
+            }
+            
+            // Mobile programs dropdown
+            if (mobileProgramsButton && mobileProgramsMenu) {
+                mobileProgramsButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    mobileProgramsMenu.classList.toggle('hidden');
+                    if (mobileProgramsIcon) {
+                        mobileProgramsIcon.classList.toggle('rotate-180');
+                    }
+                });
+            }
+            
+            // Close mobile menu on window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768 && mobileMenu && mobileMenuButton) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.classList.remove('open');
+                    document.body.classList.remove('menu-open');
+                }
+            });
+            
+            // Simple animation observer
+            const animateElements = document.querySelectorAll('.aos-animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // FAQ accordion
+            const faqButtons = document.querySelectorAll('.faq-button');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    content.classList.toggle('hidden');
+                    const icon = button.querySelector('i');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
